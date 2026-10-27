@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Joel Gundan — Infrastructure Developer and IAM Security Engineer specializing in hybrid Active Directory, Entra ID, enterprise PKI, messaging and automation." />
+    <meta name="author" content="Joel Gundan" />
+    <title>Joel Gundan - Resume</title>
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Mulish:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        /* Start Bootstrap - Resume theme styles */
+        :root { --primary: #bd5d38; }
+        html { scroll-behavior: smooth; }
+        body {
+            padding-top: 54px;
+            color: #6c757d;
+            font-family: "Mulish", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #fff;
+        }
+        @media (min-width: 992px) {
+            body { padding-top: 0; padding-left: 17rem; }
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #343a40;
+        }
+        h1 { font-size: 6rem; line-height: 5.5rem; }
+        h2 { font-size: 3.5rem; }
+        @media (max-width: 575px) {
+            h1 { font-size: 3.75rem; line-height: 3.75rem; }
+            h2 { font-size: 2.75rem; }
+        }
+        .subheading {
+            text-transform: uppercase;
+            font-weight: 500;
+            font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 1.5rem;
+        }
+        .bg-primary { background-color: var(--primary) !important; }
+        .text-primary { color: var(--primary) !important; }
+        a { color: var(--primary); }
+        a:hover { color: #824027; }
+
+        /* Social icons */
+        .social-icons .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 3.5rem;
+            width: 3.5rem;
+            background-color: #495057;
+            color: #fff;
+            border-radius: 100%;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            text-decoration: none;
+        }
+        .social-icons .social-icon:last-child { margin-right: 0; }
+        .social-icons .social-icon:hover { background-color: var(--primary); }
+
+        /* Skill icons */
+        .dev-icons { font-size: 3rem; }
+        .dev-icons .list-inline-item i:hover { color: var(--primary); }
+
+        /* Side navigation */
+        #sideNav .navbar-nav .nav-item .nav-link {
+            font-weight: 800;
+            letter-spacing: 0.05rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.55);
+        }
+        #sideNav .navbar-nav .nav-item .nav-link:hover,
+        #sideNav .navbar-nav .nav-item .nav-link.active { color: #fff; }
+        #sideNav .navbar-toggler:focus { outline-color: #d48a6e; }
+        .img-profile {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 10rem;
+            height: 10rem;
+            border-radius: 50%;
+            border: 0.5rem solid rgba(255, 255, 255, 0.2);
+            background: #a04e2f;
+            color: #fff;
+            font-family: "Saira Extra Condensed", sans-serif;
+            font-weight: 700;
+            font-size: 3.5rem;
+            letter-spacing: 0.05rem;
+        }
+        @media (min-width: 992px) {
+            #sideNav {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                width: 17rem;
+                height: 100vh;
+            }
+            #sideNav .navbar-brand {
+                display: flex;
+                margin: auto auto 0;
+                padding: 0.5rem;
+            }
+            #sideNav .navbar-collapse {
+                display: flex;
+                align-items: flex-start;
+                flex-grow: 0;
+                width: 100%;
+                margin-bottom: auto;
+            }
+            #sideNav .navbar-collapse .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            #sideNav .navbar-collapse .navbar-nav .nav-item { display: block; }
+            #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link { display: block; }
+        }
+
+        /* Sections */
+        section.resume-section {
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            max-width: 75rem;
+        }
+        section.resume-section .resume-section-content { width: 100%; }
+        @media (min-width: 768px) {
+            section.resume-section { min-height: 100vh; }
+        }
+        @media (min-width: 992px) {
+            section.resume-section { padding-left: 3rem; padding-right: 3rem; }
+        }
+        .fa-ul .fa-li { color: var(--primary); }
+    </style>
+</head>
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#sideNav" data-bs-offset="74">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <a class="navbar-brand" href="#page-top">
+            <span class="d-block d-lg-none">Joel Gundan</span>
+            <span class="d-none d-lg-block"><span class="img-profile mx-auto mb-2">JG</span></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container-fluid p-0">
+        <!-- About -->
+        <section class="resume-section" id="about">
+            <div class="resume-section-content">
+                <h1 class="mb-0">
+                    Joel
+                    <span class="text-primary">Gundan</span>
+                </h1>
+                <div class="subheading mb-5">
+                    Rodriguez, Rizal, Philippines · 0919 995 1171 ·
+                    <a href="mailto:joelgundan@hotmail.ph">joelgundan@hotmail.ph</a>
+                </div>
+                <p class="lead mb-5">
+                    Infrastructure Developer and IAM Security Engineer with 4+ years designing, deploying and hardening hybrid
+                    Active Directory, Entra ID, enterprise PKI and messaging infrastructure across multi-region environments.
+                    Strong in Windows Server and Group Policy administration, certificate lifecycle management with Venafi, DNS
+                    and directory services, and large-scale PowerShell automation integrated with ITSM platforms. Experienced
+                    supporting on-premises to cloud migration and providing second- and third-level infrastructure support to
+                    global users.
+                </p>
+                <div class="social-icons">
+                    <a class="social-icon" href="https://linkedin.com/in/jgundan" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="social-icon" href="mailto:joelgundan@hotmail.ph" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a class="social-icon" href="tel:+639199951171" aria-label="Phone"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+        </section>
+        <hr class="m-0" />
+
+        <!-- Experience -->
+        <section class="resume-section" id="experience">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Experience</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Infrastructure Developer – DevOps &amp; GitOps</h3>
+                        <div class="subheading mb-3">ProV International · Makati City, PH</div>
+                        <ul>
+                            <li>Design, deploy and maintain hybrid Active Directory infrastructure — domain controllers, Group Policy, replication and Entra ID interfacing services — including ongoing security hardening of directory and server platforms.</li>
+                            <li>Administer Exchange Online and Microsoft 365 workloads through Microsoft Graph API and PowerShell, automating mailbox, licensing and provisioning operations.</li>
+                            <li>Develop infrastructure automation in PowerShell and Python and build GitLab CI/CD pipelines for infrastructure and scheduled-task workflows, reducing manual effort and improving deployment consistency.</li>
+                            <li>Implement automated monitoring and alerting for scheduled tasks and infrastructure services to detect and resolve failures proactively; use Ansible for configuration management and NetBox for asset tracking.</li>
+                        </ul>
+                    </div>
+                    <div class="flex-shrink-0 ms-md-4"><span class="text-primary">February 2026 - Present</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">IAM – IDaM Architect</h3>
+                        <div class="subheading mb-3">Wrist Ship Supply · Manila City, PH</div>
+                        <ul>
+                            <li>Designed and administered enterprise hybrid identity for thousands of users across multiple countries (Microsoft Entra ID, Azure AD Connect, on-prem AD, Citrix, AD Manager Plus), including Conditional Access, PIM and Access Review controls.</li>
+                            <li>Delivered core IdP features — SSO and MFA via SAML, OAuth 2.0 and OIDC — cutting sign-in overhead by 60%.</li>
+                            <li>Automated Joiner-Mover-Leaver workflows with PowerShell, Python and Terraform, improving provisioning speed by 60%; acted as third-level escalation for identity and directory incidents.</li>
+                        </ul>
+                    </div>
+                    <div class="flex-shrink-0 ms-md-4"><span class="text-primary">September 2024 - February 2026</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Security Engineer – Identity &amp; Access Management</h3>
+                        <div class="subheading mb-3">DXC Technology · Taguig City, PH</div>
+                        <ul>
+                            <li>Designed, deployed and maintained enterprise PKI using Venafi for certificate lifecycle management and SSL/TLS deployment across internal and external services.</li>
+                            <li>Managed enterprise directory and identity technologies including Active Directory, RSA SecurID and CA-PAM; supported Windows Server and Microsoft Azure IaaS security hardening.</li>
+                            <li>Developed PowerShell and SSH automation to streamline infrastructure operations; resolved second- and third-level infrastructure incidents and service requests through ServiceNow.</li>
+                            <li>Concurrent roles: PowerShell Trainer (Sept 2023 – Sept 2024), building hands-on automation training programs; Automation Developer (Mar 2023 – Sept 2024), designing Power Automate workflows that saved ~1 FTE of manual effort.</li>
+                        </ul>
+                    </div>
+                    <div class="flex-shrink-0 ms-md-4"><span class="text-primary">July 2022 - September 2024</span></div>
+                </div>
+            </div>
+        </section>
+        <hr class="m-0" />
+
+        <!-- Education -->
+        <section class="resume-section" id="education">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Education</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Ateneo de Naga University</h3>
+                        <div class="subheading mb-3">Bachelor of Science</div>
+                        <div>Information Systems</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="m-0" />
+
+        <!-- Skills -->
+        <section class="resume-section" id="skills">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Skills</h2>
+                <div class="subheading mb-3">Platforms &amp; Tools</div>
+                <ul class="list-inline dev-icons">
+                    <li class="list-inline-item" title="Microsoft 365 / Entra ID"><i class="fab fa-microsoft"></i></li>
+                    <li class="list-inline-item" title="Windows Server"><i class="fab fa-windows"></i></li>
+                    <li class="list-inline-item" title="PowerShell"><i class="fas fa-terminal"></i></li>
+                    <li class="list-inline-item" title="Python"><i class="fab fa-python"></i></li>
+                    <li class="list-inline-item" title="GitLab CI/CD"><i class="fab fa-gitlab"></i></li>
+                    <li class="list-inline-item" title="Microsoft Azure"><i class="fas fa-cloud"></i></li>
+                    <li class="list-inline-item" title="PKI / Certificates"><i class="fas fa-key"></i></li>
+                    <li class="list-inline-item" title="Identity & Access"><i class="fas fa-user-shield"></i></li>
+                </ul>
+                <div class="subheading mb-3">Core Competencies</div>
+                <ul class="fa-ul mb-0">
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Hybrid Directory:</strong> Active Directory (Domain Controllers, Group Policy, replication, ADUC), Microsoft Entra ID, Azure AD Connect, DNS</li>
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Messaging:</strong> Exchange Online, Microsoft 365 administration, mail flow and mailbox operations</li>
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>PKI / Security:</strong> Venafi, SSL/TLS certificate lifecycle, security hardening, MFA, SSO, SAML, OAuth 2.0, OIDC, PIM, RBAC</li>
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Server / Cloud:</strong> Windows Server, Microsoft Azure, hybrid infrastructure, on-premises to cloud migration support</li>
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Automation / API:</strong> PowerShell, Python, Microsoft Graph API, Terraform, Ansible, GitLab CI/CD, Power Automate</li>
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>ITSM / Support:</strong> ServiceNow, Freshservice, second- and third-level incident and service request handling, automated monitoring</li>
+                </ul>
+            </div>
+        </section>
+        <hr class="m-0" />
+
+        <!-- Certifications -->
+        <section class="resume-section" id="certifications">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Certifications</h2>
+                <ul class="fa-ul mb-0">
+                    <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Microsoft Certified: Identity and Access Administrator Associate (SC-300) — Nov 2023</li>
+                    <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>ISC2 Certified in Cybersecurity (CC) — Dec 2023</li>
+                    <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Microsoft Certified: Azure Fundamentals — Feb 2023</li>
+                    <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Microsoft Certified: Security, Compliance and Identity Fundamentals — Aug 2022</li>
+                    <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Mastercard Cybersecurity Job Simulation — Apr 2024</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrap core JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Collapse responsive navbar when a link is clicked (as in the original template)
+        window.addEventListener('DOMContentLoaded', () => {
+            const toggler = document.body.querySelector('.navbar-toggler');
+            document.querySelectorAll('#navbarResponsive .nav-link').forEach((link) => {
+                link.addEventListener('click', () => {
+                    if (window.getComputedStyle(toggler).display !== 'none') toggler.click();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
