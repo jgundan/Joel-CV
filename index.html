@@ -2,311 +2,686 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Joel Gundan — Infrastructure Developer and IAM Security Engineer specializing in hybrid Active Directory, Entra ID, enterprise PKI, messaging and automation." />
     <meta name="author" content="Joel Gundan" />
     <title>Joel Gundan - Resume</title>
-    <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Mulish:400,400i,800,800i" rel="stylesheet" type="text/css" />
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
-        /* Start Bootstrap - Resume theme styles */
-        :root { --primary: #bd5d38; }
-        html { scroll-behavior: smooth; }
+        /* GitLab-inspired palette (Pajamas-style tokens) */
+        :root {
+            --gl-navy: #1f1e24;
+            --gl-navy-2: #2e2a3a;
+            --brand: #1f75cb;          /* links */
+            --brand-hover: #0b5cad;
+            --accent-orange: #fc6d26;
+            --accent-red: #e24329;
+            --accent-purple: #6b4fbb;
+            --success: #108548;
+            --success-soft: #e6f4ec;
+            --purple-soft: #f1edfa;
+            --page-bg: #f8f8fa;
+            --card-bg: #ffffff;
+            --text: #303030;
+            --text-muted: #626168;
+            --border: #dbdbdb;
+            --border-soft: #ececef;
+            --radius: 4px;
+            --shadow: 0 1px 2px rgba(31, 30, 36, 0.08);
+            --chip-bg: #f0f0f0;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --gl-navy: #111014;
+                --gl-navy-2: #1a1820;
+                --brand: #7bb8ff;
+                --brand-hover: #a8d1ff;
+                --page-bg: #151417;
+                --card-bg: #1d1c21;
+                --text: #e6e6e9;
+                --text-muted: #a5a4ad;
+                --border: #434249;
+                --border-soft: #2c2b31;
+                --success-soft: #16352a;
+                --purple-soft: #2a2440;
+                --shadow: none;
+                --chip-bg: #2c2b31;
+            }
+        }
+        :root[data-theme="dark"] {
+            --gl-navy: #111014;
+            --gl-navy-2: #1a1820;
+            --brand: #7bb8ff;
+            --brand-hover: #a8d1ff;
+            --page-bg: #151417;
+            --card-bg: #1d1c21;
+            --text: #e6e6e9;
+            --text-muted: #a5a4ad;
+            --border: #434249;
+            --border-soft: #2c2b31;
+            --success-soft: #16352a;
+            --purple-soft: #2a2440;
+            --shadow: none;
+            --chip-bg: #2c2b31;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
         body {
-            padding-top: 54px;
-            color: #6c757d;
-            font-family: "Mulish", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: #fff;
+            margin: 0;
+            background: var(--page-bg);
+            color: var(--text);
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
         }
-        @media (min-width: 992px) {
-            body { padding-top: 0; padding-left: 17rem; }
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #343a40;
-        }
-        h1 { font-size: 6rem; line-height: 5.5rem; }
-        h2 { font-size: 3.5rem; }
-        @media (max-width: 575px) {
-            h1 { font-size: 3.75rem; line-height: 3.75rem; }
-            h2 { font-size: 2.75rem; }
-        }
-        .subheading {
-            text-transform: uppercase;
-            font-weight: 500;
-            font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 1.5rem;
-        }
-        .bg-primary { background-color: var(--primary) !important; }
-        .text-primary { color: var(--primary) !important; }
-        a { color: var(--primary); }
-        a:hover { color: #824027; }
+        a { color: var(--brand); text-decoration: none; }
+        a:hover { color: var(--brand-hover); text-decoration: underline; }
+        h1, h2, h3, h4, p, ul { margin: 0; }
+        ul { padding-left: 1.25rem; }
+        li + li { margin-top: 0.45rem; }
 
-        /* Social icons */
-        .social-icons .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 3.5rem;
-            width: 3.5rem;
-            background-color: #495057;
+        /* Top bar: dark navy, GitLab-style with a brand gradient rule */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--gl-navy);
             color: #fff;
-            border-radius: 100%;
-            font-size: 1.5rem;
-            margin-right: 1.5rem;
-            text-decoration: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
         }
-        .social-icons .social-icon:last-child { margin-right: 0; }
-        .social-icons .social-icon:hover { background-color: var(--primary); }
-
-        /* Skill icons */
-        .dev-icons { font-size: 3rem; }
-        .dev-icons .list-inline-item i:hover { color: var(--primary); }
-
-        /* Side navigation */
-        #sideNav .navbar-nav .nav-item .nav-link {
-            font-weight: 800;
-            letter-spacing: 0.05rem;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.55);
+        .topbar::after {
+            content: "";
+            display: block;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-orange), var(--accent-purple));
         }
-        #sideNav .navbar-nav .nav-item .nav-link:hover,
-        #sideNav .navbar-nav .nav-item .nav-link.active { color: #fff; }
-        #sideNav .navbar-toggler:focus { outline-color: #d48a6e; }
-        .img-profile {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 10rem;
-            height: 10rem;
-            border-radius: 50%;
-            border: 0.5rem solid rgba(255, 255, 255, 0.2);
-            background: #a04e2f;
-            color: #fff;
-            font-family: "Saira Extra Condensed", sans-serif;
-            font-weight: 700;
-            font-size: 3.5rem;
-            letter-spacing: 0.05rem;
-        }
-        @media (min-width: 992px) {
-            #sideNav {
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                width: 17rem;
-                height: 100vh;
-            }
-            #sideNav .navbar-brand {
-                display: flex;
-                margin: auto auto 0;
-                padding: 0.5rem;
-            }
-            #sideNav .navbar-collapse {
-                display: flex;
-                align-items: flex-start;
-                flex-grow: 0;
-                width: 100%;
-                margin-bottom: auto;
-            }
-            #sideNav .navbar-collapse .navbar-nav {
-                flex-direction: column;
-                width: 100%;
-            }
-            #sideNav .navbar-collapse .navbar-nav .nav-item { display: block; }
-            #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link { display: block; }
-        }
-
-        /* Sections */
-        section.resume-section {
+        .topbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
             display: flex;
             align-items: center;
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-            max-width: 75rem;
+            gap: 20px;
+            height: 56px;
         }
-        section.resume-section .resume-section-content { width: 100%; }
-        @media (min-width: 768px) {
-            section.resume-section { min-height: 100vh; }
+        .topbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .topbar-brand:hover { color: #fff; text-decoration: none; }
+        .mark {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .topnav {
+            display: flex;
+            gap: 2px;
+            margin-left: auto;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .topnav::-webkit-scrollbar { display: none; }
+        .topnav a {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: var(--radius);
+            white-space: nowrap;
+        }
+        .topnav a:hover { color: #fff; background: var(--gl-navy-2); text-decoration: none; }
+        .topnav a.active { color: #fff; background: var(--gl-navy-2); box-shadow: inset 0 -2px 0 var(--accent-orange); }
+
+        /* Page layout */
+        .layout {
+            max-width: 1200px;
+            margin: 24px auto;
+            padding: 0 16px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 16px;
         }
         @media (min-width: 992px) {
-            section.resume-section { padding-left: 3rem; padding-right: 3rem; }
+            .layout { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; }
+            .sidebar { position: sticky; top: 80px; }
         }
-        .fa-ul .fa-li { color: var(--primary); }
+        .stack { display: flex; flex-direction: column; gap: 16px; }
+
+        /* Panels (GitLab "card" style) */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        .card-body { padding: 20px 24px; }
+        .card-header {
+            padding: 14px 24px;
+            border-bottom: 1px solid var(--border-soft);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .card-header h2 { font-size: 1.05rem; font-weight: 600; color: var(--text); }
+        .card-header .count {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--chip-bg);
+            border-radius: 999px;
+            padding: 1px 8px;
+        }
+
+        /* Profile header */
+        .profile { overflow: hidden; }
+        .banner {
+            height: 150px;
+            background: linear-gradient(115deg, var(--accent-red) 0%, var(--accent-orange) 42%, var(--accent-purple) 100%);
+        }
+        .profile-body { padding: 0 24px 22px; }
+        .avatar {
+            width: 124px;
+            height: 124px;
+            margin-top: -62px;
+            border-radius: 12px;
+            border: 4px solid var(--card-bg);
+            background: var(--gl-navy);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        .profile h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-top: 14px;
+            line-height: 1.2;
+            color: var(--text);
+        }
+        .handle { color: var(--text-muted); font-size: 0.95rem; margin-top: 2px; }
+        .headline { font-size: 1rem; margin-top: 10px; color: var(--text); }
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 16px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        .meta i { width: 1em; margin-right: 4px; }
+        .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text);
+            cursor: pointer;
+            font-family: inherit;
+            line-height: 1.2;
+        }
+        .btn:hover { background: var(--chip-bg); color: var(--text); text-decoration: none; }
+        .btn-primary { background: var(--accent-purple); border-color: var(--accent-purple); color: #fff; }
+        .btn-primary:hover { background: #5a3fa5; border-color: #5a3fa5; color: #fff; }
+        .btn i { color: var(--text-muted); }
+        .btn-primary i { color: #fff; }
+
+        /* About */
+        .about p + p { margin-top: 12px; }
+
+        /* Experience (GitLab activity-list style) */
+        .entry { display: flex; gap: 16px; }
+        .entry + .entry {
+            border-top: 1px solid var(--border-soft);
+            margin-top: 22px;
+            padding-top: 22px;
+        }
+        .logo {
+            flex: 0 0 44px;
+            height: 44px;
+            border-radius: var(--radius);
+            background: var(--purple-soft);
+            color: var(--accent-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-soft);
+        }
+        .entry-body { flex: 1; min-width: 0; }
+        .entry-title {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+        .entry h3 { font-size: 1.02rem; font-weight: 600; color: var(--text); }
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 1px 8px;
+            border-radius: 999px;
+            background: var(--success-soft);
+            color: var(--success);
+        }
+        .company { font-weight: 500; color: var(--text); margin-top: 2px; }
+        .dates { color: var(--text-muted); font-size: 0.87rem; margin-top: 2px; }
+        .entry ul { margin-top: 10px; }
+        .entry li { font-size: 0.93rem; }
+        .sub-role {
+            margin-top: 14px;
+            padding: 10px 14px;
+            background: var(--page-bg);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius);
+        }
+        .sub-role h4 { font-size: 0.93rem; font-weight: 600; color: var(--text); }
+        .sub-role p { color: var(--text-muted); font-size: 0.88rem; margin-top: 2px; }
+
+        /* Skills (GitLab scoped-label style) */
+        .skill-group + .skill-group { margin-top: 20px; }
+        .skill-group h3 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+        .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+        .chips li { margin: 0; }
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.86rem;
+        }
+        .chip::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-orange);
+        }
+        .skill-group:nth-of-type(2) .chip::before { background: var(--accent-purple); }
+        .chip i { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Certifications */
+        .cert { display: flex; gap: 12px; align-items: flex-start; }
+        .cert + .cert {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-soft);
+        }
+        .cert-icon {
+            flex: 0 0 36px;
+            height: 36px;
+            border-radius: var(--radius);
+            background: var(--success-soft);
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cert-name { font-weight: 600; color: var(--text); font-size: 0.93rem; }
+        .cert-date { color: var(--text-muted); font-size: 0.85rem; }
+
+        /* Sidebar: project-info style key/value list */
+        .info-list { list-style: none; padding: 0; margin: 0; }
+        .info-list li { margin: 0; }
+        .info-list li + li { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border-soft); }
+        .info-list .label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+        }
+        .info-list a, .info-list span.value { font-weight: 500; word-break: break-word; }
+        .social { display: flex; gap: 8px; margin-top: 18px; }
+        .social a {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        .social a:hover { color: var(--accent-purple); border-color: var(--accent-purple); text-decoration: none; }
+
+        .footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            padding: 4px 0 32px;
+        }
+
+        :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+        @media (max-width: 575px) {
+            .profile h1 { font-size: 1.4rem; }
+            .banner { height: 100px; }
+            .avatar { width: 96px; height: 96px; font-size: 2rem; margin-top: -48px; }
+            .profile-body { padding: 0 16px 18px; }
+            .card-body { padding: 16px; }
+            .card-header { padding: 12px 16px; }
+            .entry { flex-direction: column; gap: 10px; }
+            .logo { flex: none; }
+            .topnav a { padding: 8px 9px; font-size: 0.85rem; }
+        }
+
+        @media print {
+            body { background: #fff; }
+            .topbar, .actions, .social { display: none !important; }
+            .layout { grid-template-columns: 1fr; margin: 0; }
+            .card { box-shadow: none; break-inside: avoid; }
+            .sidebar { position: static; }
+        }
     </style>
 </head>
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#sideNav" data-bs-offset="74">
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand" href="#page-top">
-            <span class="d-block d-lg-none">Joel Gundan</span>
-            <span class="d-none d-lg-block"><span class="img-profile mx-auto mb-2">JG</span></span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-            </ul>
+<body id="top">
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="topbar-brand" href="#top"><span class="mark" aria-hidden="true">JG</span> Joel Gundan</a>
+            <nav class="topnav" aria-label="Sections">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#certifications">Certifications</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Page Content -->
-    <div class="container-fluid p-0">
-        <!-- About -->
-        <section class="resume-section" id="about">
-            <div class="resume-section-content">
-                <h1 class="mb-0">
-                    Joel
-                    <span class="text-primary">Gundan</span>
-                </h1>
-                <div class="subheading mb-5">
-                    Rodriguez, Rizal, Philippines · 0919 995 1171 ·
-                    <a href="mailto:joelgundan@hotmail.ph">joelgundan@hotmail.ph</a>
+    <main class="layout">
+        <div class="stack">
+            <!-- Profile header -->
+            <section class="card profile" aria-labelledby="name">
+                <div class="banner" aria-hidden="true"></div>
+                <div class="profile-body">
+                    <div class="avatar" aria-hidden="true">JG</div>
+                    <h1 id="name">Joel Gundan</h1>
+                    <div class="handle">@jgundan</div>
+                    <p class="headline">Infrastructure Developer &amp; IAM Security Engineer · Hybrid Active Directory, Entra ID, PKI &amp; Automation</p>
+                    <div class="meta">
+                        <span><i class="fas fa-location-dot" aria-hidden="true"></i>Rodriguez, Rizal, Philippines</span>
+                    </div>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="mailto:joelgundan@hotmail.ph"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</a>
+                        <a class="btn" href="https://linkedin.com/in/jgundan" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a>
+                        <button class="btn" type="button" onclick="window.print()"><i class="fas fa-file-pdf" aria-hidden="true"></i> Save as PDF</button>
+                    </div>
                 </div>
-                <p class="lead mb-5">
-                    Infrastructure Developer and IAM Security Engineer with 4+ years designing, deploying and hardening hybrid
-                    Active Directory, Entra ID, enterprise PKI and messaging infrastructure across multi-region environments.
-                    Strong in Windows Server and Group Policy administration, certificate lifecycle management with Venafi, DNS
-                    and directory services, and large-scale PowerShell automation integrated with ITSM platforms. Experienced
-                    supporting on-premises to cloud migration and providing second- and third-level infrastructure support to
-                    global users.
-                </p>
-                <div class="social-icons">
-                    <a class="social-icon" href="https://linkedin.com/in/jgundan" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="social-icon" href="mailto:joelgundan@hotmail.ph" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    <a class="social-icon" href="tel:+639199951171" aria-label="Phone"><i class="fas fa-phone"></i></a>
-                </div>
-            </div>
-        </section>
-        <hr class="m-0" />
+            </section>
 
-        <!-- Experience -->
-        <section class="resume-section" id="experience">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Experience</h2>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">Infrastructure Developer – DevOps &amp; GitOps</h3>
-                        <div class="subheading mb-3">ProV International · Makati City, PH</div>
-                        <ul>
-                            <li>Design, deploy and maintain hybrid Active Directory infrastructure — domain controllers, Group Policy, replication and Entra ID interfacing services — including ongoing security hardening of directory and server platforms.</li>
-                            <li>Administer Exchange Online and Microsoft 365 workloads through Microsoft Graph API and PowerShell, automating mailbox, licensing and provisioning operations.</li>
-                            <li>Develop infrastructure automation in PowerShell and Python and build GitLab CI/CD pipelines for infrastructure and scheduled-task workflows, reducing manual effort and improving deployment consistency.</li>
-                            <li>Implement automated monitoring and alerting for scheduled tasks and infrastructure services to detect and resolve failures proactively; use Ansible for configuration management and NetBox for asset tracking.</li>
+            <!-- About -->
+            <section class="card about" id="about" aria-labelledby="about-title">
+                <div class="card-header"><h2 id="about-title">About</h2></div>
+                <div class="card-body">
+                    <p>
+                        Infrastructure Developer and IAM Security Engineer with 4+ years designing, deploying and hardening hybrid
+                        Active Directory, Entra ID, enterprise PKI and messaging infrastructure across multi-region environments.
+                    </p>
+                    <p>
+                        Strong in Windows Server and Group Policy administration, certificate lifecycle management with Venafi, DNS
+                        and directory services, and large-scale PowerShell automation integrated with ITSM platforms. Experienced
+                        supporting on-premises to cloud migration and providing second- and third-level infrastructure support to
+                        global users.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section class="card" id="experience" aria-labelledby="experience-title">
+                <div class="card-header">
+                    <h2 id="experience-title">Experience</h2>
+                    <span class="count">3 roles</span>
+                </div>
+                <div class="card-body">
+                    <article class="entry">
+                        <div class="logo" aria-hidden="true">PV</div>
+                        <div class="entry-body">
+                            <div class="entry-title">
+                                <h3>Infrastructure Developer – DevOps &amp; GitOps</h3>
+                                <span class="badge">Current</span>
+                            </div>
+                            <div class="company">ProV International</div>
+                            <div class="dates">February 2026 – Present · Makati City, Philippines</div>
+                            <ul>
+                                <li>Design, deploy and maintain hybrid Active Directory infrastructure — domain controllers, Group Policy, replication and Entra ID interfacing services — including ongoing security hardening of directory and server platforms.</li>
+                                <li>Administer Exchange Online and Microsoft 365 workloads through Microsoft Graph API and PowerShell, automating mailbox, licensing and provisioning operations.</li>
+                                <li>Develop infrastructure automation in PowerShell and Python and build GitLab CI/CD pipelines for infrastructure and scheduled-task workflows, improving deployment consistency and reducing manual effort.</li>
+                                <li>Implement automated monitoring and alerting for scheduled tasks and infrastructure services to detect and resolve failures proactively; use Ansible for configuration management and NetBox for asset tracking.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="entry">
+                        <div class="logo" aria-hidden="true">WS</div>
+                        <div class="entry-body">
+                            <h3>IAM – IDaM Architect</h3>
+                            <div class="company">Wrist Ship Supply</div>
+                            <div class="dates">September 2024 – February 2026 · Manila City, Philippines</div>
+                            <ul>
+                                <li>Designed and administered enterprise hybrid identity for thousands of users across multiple countries (Microsoft Entra ID, Azure AD Connect, on-prem AD, Citrix, AD Manager Plus), including Conditional Access, PIM and Access Review controls.</li>
+                                <li>Delivered core identity provider features — SSO and MFA via SAML, OAuth 2.0 and OIDC — cutting sign-in overhead by 60%.</li>
+                                <li>Automated Joiner-Mover-Leaver workflows with PowerShell, Python and Terraform, improving provisioning speed by 60%; acted as third-level escalation for identity and directory incidents.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="entry">
+                        <div class="logo" aria-hidden="true">DX</div>
+                        <div class="entry-body">
+                            <h3>Security Engineer – Identity &amp; Access Management</h3>
+                            <div class="company">DXC Technology</div>
+                            <div class="dates">July 2022 – September 2024 · Taguig City, Philippines</div>
+                            <ul>
+                                <li>Designed, deployed and maintained enterprise PKI using Venafi for certificate lifecycle management and SSL/TLS deployment across internal and external services.</li>
+                                <li>Managed enterprise directory and identity technologies including Active Directory, RSA SecurID and CA-PAM; supported Windows Server and Microsoft Azure IaaS security hardening.</li>
+                                <li>Developed PowerShell and SSH automation to streamline infrastructure operations; resolved second- and third-level infrastructure incidents and service requests through ServiceNow.</li>
+                            </ul>
+                            <div class="sub-role">
+                                <h4>PowerShell Trainer · Sep 2023 – Sep 2024</h4>
+                                <p>Built hands-on automation training programs.</p>
+                            </div>
+                            <div class="sub-role">
+                                <h4>Automation Developer · Mar 2023 – Sep 2024</h4>
+                                <p>Designed Power Automate workflows that saved ~1 FTE of manual effort.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="card" id="education" aria-labelledby="education-title">
+                <div class="card-header"><h2 id="education-title">Education</h2></div>
+                <div class="card-body">
+                    <article class="entry">
+                        <div class="logo" aria-hidden="true">AN</div>
+                        <div class="entry-body">
+                            <h3>Ateneo de Naga University</h3>
+                            <div class="company">Bachelor of Science, Information Systems</div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section class="card" id="skills" aria-labelledby="skills-title">
+                <div class="card-header"><h2 id="skills-title">Skills</h2></div>
+                <div class="card-body">
+                    <div class="skill-group">
+                        <h3>Core competencies</h3>
+                        <ul class="chips">
+                            <li><span class="chip">Active Directory</span></li>
+                            <li><span class="chip">Microsoft Entra ID</span></li>
+                            <li><span class="chip">Azure AD Connect</span></li>
+                            <li><span class="chip">Group Policy</span></li>
+                            <li><span class="chip">DNS</span></li>
+                            <li><span class="chip">Exchange Online</span></li>
+                            <li><span class="chip">Microsoft 365</span></li>
+                            <li><span class="chip">Venafi / PKI</span></li>
+                            <li><span class="chip">SSO · MFA · SAML · OIDC · OAuth 2.0</span></li>
+                            <li><span class="chip">PIM · RBAC · Conditional Access</span></li>
+                            <li><span class="chip">Windows Server</span></li>
+                            <li><span class="chip">Microsoft Azure</span></li>
+                            <li><span class="chip">Hybrid infrastructure &amp; cloud migration</span></li>
+                            <li><span class="chip">ServiceNow · Freshservice</span></li>
                         </ul>
                     </div>
-                    <div class="flex-shrink-0 ms-md-4"><span class="text-primary">February 2026 - Present</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">IAM – IDaM Architect</h3>
-                        <div class="subheading mb-3">Wrist Ship Supply · Manila City, PH</div>
-                        <ul>
-                            <li>Designed and administered enterprise hybrid identity for thousands of users across multiple countries (Microsoft Entra ID, Azure AD Connect, on-prem AD, Citrix, AD Manager Plus), including Conditional Access, PIM and Access Review controls.</li>
-                            <li>Delivered core IdP features — SSO and MFA via SAML, OAuth 2.0 and OIDC — cutting sign-in overhead by 60%.</li>
-                            <li>Automated Joiner-Mover-Leaver workflows with PowerShell, Python and Terraform, improving provisioning speed by 60%; acted as third-level escalation for identity and directory incidents.</li>
+                    <div class="skill-group">
+                        <h3>Automation &amp; tooling</h3>
+                        <ul class="chips">
+                            <li><span class="chip"><i class="fas fa-terminal" aria-hidden="true"></i> PowerShell</span></li>
+                            <li><span class="chip"><i class="fab fa-python" aria-hidden="true"></i> Python</span></li>
+                            <li><span class="chip">Microsoft Graph API</span></li>
+                            <li><span class="chip"><i class="fab fa-gitlab" aria-hidden="true"></i> GitLab CI/CD</span></li>
+                            <li><span class="chip">Terraform</span></li>
+                            <li><span class="chip">Ansible</span></li>
+                            <li><span class="chip">NetBox</span></li>
+                            <li><span class="chip">Power Automate</span></li>
+                            <li><span class="chip">Monitoring &amp; alerting</span></li>
                         </ul>
                     </div>
-                    <div class="flex-shrink-0 ms-md-4"><span class="text-primary">September 2024 - February 2026</span></div>
                 </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">Security Engineer – Identity &amp; Access Management</h3>
-                        <div class="subheading mb-3">DXC Technology · Taguig City, PH</div>
-                        <ul>
-                            <li>Designed, deployed and maintained enterprise PKI using Venafi for certificate lifecycle management and SSL/TLS deployment across internal and external services.</li>
-                            <li>Managed enterprise directory and identity technologies including Active Directory, RSA SecurID and CA-PAM; supported Windows Server and Microsoft Azure IaaS security hardening.</li>
-                            <li>Developed PowerShell and SSH automation to streamline infrastructure operations; resolved second- and third-level infrastructure incidents and service requests through ServiceNow.</li>
-                            <li>Concurrent roles: PowerShell Trainer (Sept 2023 – Sept 2024), building hands-on automation training programs; Automation Developer (Mar 2023 – Sept 2024), designing Power Automate workflows that saved ~1 FTE of manual effort.</li>
-                        </ul>
+            </section>
+
+            <!-- Certifications -->
+            <section class="card" id="certifications" aria-labelledby="certifications-title">
+                <div class="card-header">
+                    <h2 id="certifications-title">Licenses &amp; Certifications</h2>
+                    <span class="count">5</span>
+                </div>
+                <div class="card-body">
+                    <div class="cert">
+                        <div class="cert-icon" aria-hidden="true"><i class="fas fa-award"></i></div>
+                        <div>
+                            <div class="cert-name">Microsoft Certified: Identity and Access Administrator Associate (SC-300)</div>
+                            <div class="cert-date">Issued Nov 2023</div>
+                        </div>
                     </div>
-                    <div class="flex-shrink-0 ms-md-4"><span class="text-primary">July 2022 - September 2024</span></div>
-                </div>
-            </div>
-        </section>
-        <hr class="m-0" />
-
-        <!-- Education -->
-        <section class="resume-section" id="education">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Education</h2>
-                <div class="d-flex flex-column flex-md-row justify-content-between">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">Ateneo de Naga University</h3>
-                        <div class="subheading mb-3">Bachelor of Science</div>
-                        <div>Information Systems</div>
+                    <div class="cert">
+                        <div class="cert-icon" aria-hidden="true"><i class="fas fa-award"></i></div>
+                        <div>
+                            <div class="cert-name">ISC2 Certified in Cybersecurity (CC)</div>
+                            <div class="cert-date">Issued Dec 2023</div>
+                        </div>
+                    </div>
+                    <div class="cert">
+                        <div class="cert-icon" aria-hidden="true"><i class="fas fa-award"></i></div>
+                        <div>
+                            <div class="cert-name">Microsoft Certified: Azure Fundamentals</div>
+                            <div class="cert-date">Issued Feb 2023</div>
+                        </div>
+                    </div>
+                    <div class="cert">
+                        <div class="cert-icon" aria-hidden="true"><i class="fas fa-award"></i></div>
+                        <div>
+                            <div class="cert-name">Microsoft Certified: Security, Compliance and Identity Fundamentals</div>
+                            <div class="cert-date">Issued Aug 2022</div>
+                        </div>
+                    </div>
+                    <div class="cert">
+                        <div class="cert-icon" aria-hidden="true"><i class="fas fa-award"></i></div>
+                        <div>
+                            <div class="cert-name">Mastercard Cybersecurity Job Simulation</div>
+                            <div class="cert-date">Completed Apr 2024</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <hr class="m-0" />
+            </section>
 
-        <!-- Skills -->
-        <section class="resume-section" id="skills">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Skills</h2>
-                <div class="subheading mb-3">Platforms &amp; Tools</div>
-                <ul class="list-inline dev-icons">
-                    <li class="list-inline-item" title="Microsoft 365 / Entra ID"><i class="fab fa-microsoft"></i></li>
-                    <li class="list-inline-item" title="Windows Server"><i class="fab fa-windows"></i></li>
-                    <li class="list-inline-item" title="PowerShell"><i class="fas fa-terminal"></i></li>
-                    <li class="list-inline-item" title="Python"><i class="fab fa-python"></i></li>
-                    <li class="list-inline-item" title="GitLab CI/CD"><i class="fab fa-gitlab"></i></li>
-                    <li class="list-inline-item" title="Microsoft Azure"><i class="fas fa-cloud"></i></li>
-                    <li class="list-inline-item" title="PKI / Certificates"><i class="fas fa-key"></i></li>
-                    <li class="list-inline-item" title="Identity & Access"><i class="fas fa-user-shield"></i></li>
-                </ul>
-                <div class="subheading mb-3">Core Competencies</div>
-                <ul class="fa-ul mb-0">
-                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Hybrid Directory:</strong> Active Directory (Domain Controllers, Group Policy, replication, ADUC), Microsoft Entra ID, Azure AD Connect, DNS</li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Messaging:</strong> Exchange Online, Microsoft 365 administration, mail flow and mailbox operations</li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>PKI / Security:</strong> Venafi, SSL/TLS certificate lifecycle, security hardening, MFA, SSO, SAML, OAuth 2.0, OIDC, PIM, RBAC</li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Server / Cloud:</strong> Windows Server, Microsoft Azure, hybrid infrastructure, on-premises to cloud migration support</li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Automation / API:</strong> PowerShell, Python, Microsoft Graph API, Terraform, Ansible, GitLab CI/CD, Power Automate</li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>ITSM / Support:</strong> ServiceNow, Freshservice, second- and third-level incident and service request handling, automated monitoring</li>
-                </ul>
-            </div>
-        </section>
-        <hr class="m-0" />
+            <p class="footer">© Joel Gundan</p>
+        </div>
 
-        <!-- Certifications -->
-        <section class="resume-section" id="certifications">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Certifications</h2>
-                <ul class="fa-ul mb-0">
-                    <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Microsoft Certified: Identity and Access Administrator Associate (SC-300) — Nov 2023</li>
-                    <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>ISC2 Certified in Cybersecurity (CC) — Dec 2023</li>
-                    <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Microsoft Certified: Azure Fundamentals — Feb 2023</li>
-                    <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Microsoft Certified: Security, Compliance and Identity Fundamentals — Aug 2022</li>
-                    <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Mastercard Cybersecurity Job Simulation — Apr 2024</li>
-                </ul>
-            </div>
-        </section>
-    </div>
+        <aside class="stack sidebar" aria-label="Contact">
+            <section class="card">
+                <div class="card-header"><h2>Project info</h2></div>
+                <div class="card-body">
+                    <ul class="info-list">
+                        <li>
+                            <span class="label">Email</span>
+                            <a href="mailto:joelgundan@hotmail.ph">joelgundan@hotmail.ph</a>
+                        </li>
+                        <li>
+                            <span class="label">Phone</span>
+                            <a href="tel:+639199951171">0919 995 1171</a>
+                        </li>
+                        <li>
+                            <span class="label">Location</span>
+                            <span class="value">Rodriguez, Rizal, Philippines</span>
+                        </li>
+                        <li>
+                            <span class="label">LinkedIn</span>
+                            <a href="https://linkedin.com/in/jgundan" target="_blank" rel="noopener">linkedin.com/in/jgundan</a>
+                        </li>
+                    </ul>
+                    <div class="social">
+                        <a href="https://linkedin.com/in/jgundan" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:joelgundan@hotmail.ph" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+639199951171" aria-label="Phone"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </main>
 
-    <!-- Bootstrap core JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Collapse responsive navbar when a link is clicked (as in the original template)
-        window.addEventListener('DOMContentLoaded', () => {
-            const toggler = document.body.querySelector('.navbar-toggler');
-            document.querySelectorAll('#navbarResponsive .nav-link').forEach((link) => {
-                link.addEventListener('click', () => {
-                    if (window.getComputedStyle(toggler).display !== 'none') toggler.click();
+        // Highlight the top-nav link for the section currently in view
+        (function () {
+            const links = Array.from(document.querySelectorAll('.topnav a'));
+            const sections = links
+                .map((a) => document.querySelector(a.getAttribute('href')))
+                .filter(Boolean);
+            if (!('IntersectionObserver' in window) || sections.length === 0) return;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
                 });
-            });
-        });
+            }, { rootMargin: '-40% 0px -55% 0px' });
+            sections.forEach((s) => observer.observe(s));
+        })();
     </script>
 </body>
 </html>
