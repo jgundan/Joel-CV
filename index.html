@@ -670,17 +670,42 @@
         // Highlight the top-nav link for the section currently in view
         (function () {
             const links = Array.from(document.querySelectorAll('.topnav a'));
-            const sections = links
-                .map((a) => document.querySelector(a.getAttribute('href')))
-                .filter(Boolean);
-            if (!('IntersectionObserver' in window) || sections.length === 0) return;
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) return;
-                    links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
-                });
-            }, { rootMargin: '-40% 0px -55% 0px' });
-            sections.forEach((s) => observer.observe(s));
+            const pairs = links
+                .map((a) => ({ link: a, section: document.querySelector(a.getAttribute('href')) }))
+                .filter((p) => p.section);
+            if (pairs.length === 0) return;
+
+            let locked = false;   // ignore scroll updates briefly after a click
+            let unlockTimer = null;
+
+            function setActive(id) {
+                links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+            }
+
+            function update() {
+                if (locked) return;
+                const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+                let current = pairs[0].section.id;
+                if (atBottom) {
+                    current = pairs[pairs.length - 1].section.id;
+                } else {
+                    pairs.forEach((p) => {
+                        if (p.section.getBoundingClientRect().top <= 100) current = p.section.id;
+                    });
+                }
+                setActive(current);
+            }
+
+            links.forEach((a) => a.addEventListener('click', () => {
+                setActive(a.getAttribute('href').slice(1));
+                locked = true;
+                clearTimeout(unlockTimer);
+                unlockTimer = setTimeout(() => { locked = false; update(); }, 900);
+            }));
+
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
         })();
     </script>
 </body>
