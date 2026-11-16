@@ -17,7 +17,8 @@ Work happens on feature branches (for example `redesign-resume`) and reaches `ma
 ## Architecture
 
 - **Single file.** All markup, CSS, and JS live in `index.html`. Keep it that way unless the user asks for a split.
-- **Design.** It is modelled on the BootstrapMade "Style" template, rebuilt without Bootstrap. Fonts are Roboto (body), Quicksand (headings), and Open Sans (nav). The accent is `#065cc2` and headings are `#13447f`. All colors are CSS variables on `:root`. The page is light only.
+- **Design.** It is modelled on the BootstrapMade "Style" template, rebuilt without Bootstrap. Fonts are Roboto (body), Quicksand (headings), and Open Sans (nav).
+- **Theme.** The theme is black and orange. The page background is `#0b0b0b`, cards are `#1a1a1a`, and the accent is `#ff7a1a`. All colors are CSS variables on `:root`, with alpha variants such as `--accent-tint` and `--accent-30`. Text on orange fills uses `--on-accent` (near-black), because white on that orange fails contrast. The `@media print` block redefines the tokens for white paper, with a darker `#c2410c` accent. Keep hard-coded colors out of the screen styles.
 - **Layout.**
   - A transparent fixed header gets a white background once scrolled (`.scrolled`).
   - A round toggle button opens a right-hand off-canvas menu (`.navmenu`, toggled by `body.nav-open`) at every screen width.
